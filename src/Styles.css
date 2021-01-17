@@ -1,0 +1,70 @@
+body > #root > div {
+  height: 100vh;
+}
+
+body,html {
+  margin: 0;
+  padding: 0;
+}
+
+.SearchHistory {
+  flex-basis: 20%;
+  margin: 20px;
+  border: black solid;
+}
+
+.SearchResults {
+  flex-basis: 80%;
+  display: flex;
+  flex-direction: column;
+}
+
+.SearchDetails {
+  flex-basis: 45%;
+  display: flex;
+}
+
+.SearchBar {
+  flex-basis: 10%;
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  border: black solid;
+}
+
+.Map {
+  flex-basis: 70%;
+  margin: 20px;
+  border: solid;
+}
+
+.LocationDetails {
+  flex-basis: 30%;
+  margin: 20px;
+}
+
+.App {
+  text-align: center;
+  display: flex;
+}
+
+.NoData {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+  flex-basis: 100%;
+  border: black solid;
+}
+
+table {
+  height: 100%;
+  width: 100%;
+  border: solid black;
+}
+
+td {
+  border: 0.5px solid black;
+}
