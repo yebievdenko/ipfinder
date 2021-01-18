@@ -7,9 +7,8 @@ import SearchDetails from './SearchDetails.jsx';
 
 import './Styles.css';
 
-const access_key = 'c741c05cf1c8219f39ec390de4bd987e';
-const ipstackUrl = 'http://api.ipstack.com/';
-const keys = ['query', 'ip', 'type', 'continent_code', 'continent_name', 'country_code', 'country_name', 'region_code', 'region_name', 'city', 'zip', 'latitude', 'longitude'];
+const ipapiUrl = 'https://ipapi.co/';
+const keys = ['query', 'ip', 'version', 'continent_code', 'country_code', 'country_name', 'region_code', 'region', 'city', 'latitude', 'longitude'];
 
 
 function App() {
@@ -19,24 +18,24 @@ function App() {
 
 
   const fetchData = async (url) => {
-    return await axios(
-      ipstackUrl + url + '?access_key=' + access_key + '&fields=' + keys.toString()
-    );
-  }
+    return await axios
+      .get(ipapiUrl + url + "/" + "json");
+  };
 
   const findLocation = (query) => {
     Promise.resolve(fetchData(query)).then((res) => 
       res.data.latitude && res.data.longitude ?
       setSearches(_.concat([Object.assign({}, { query }, res.data)], searches))
-      : alert('No such location')
+      : alert('Invalid IP')
       )
       .catch(err => alert(err))
   }
 
   useEffect(() => {  
-    Promise.resolve(fetchData('check')).then((res) =>
+    Promise.resolve(fetchData('')).then((res) => {
+      console.log({ res });
       setUserLocation(
-        Object.assign({}, { query: 'Your location' }, res.data)));
+        Object.assign({}, { query: 'Your location' }, res.data)) });
   }, []);
 
   return (

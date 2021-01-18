@@ -11,7 +11,7 @@ export default function SearchBar ({ onAdd }) {
     return (
         <form className={'Form'} onSubmit={(e) => onSubmit(e)}>
             <label>
-                Enter IP/Url:
+                Enter IP:
             </label>
             <input type="text" onChange={(e) => setInputValue(e.target.value)}/>
             <input type="submit" value="Submit" /> 
